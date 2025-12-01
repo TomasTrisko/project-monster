@@ -1,0 +1,170 @@
+/* 1. PROMĚNNÉ A ZÁKLADNÍ NASTAVENÍ */
+:root {
+    --primary-green: #97D700; /* Ikonická Monster zelená */
+    --bg-black: #0d0d0d;      /* Téměř černá, vypadá lépe než úplně černá */
+    --text-white: #ffffff;
+    --font-main: 'Oswald', sans-serif;
+}
+
+/* Reset stylů - odstraní výchozí mezery prohlížeče */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-black);
+    color: var(--text-white);
+    font-family: var(--font-main);
+    line-height: 1.6;
+}
+
+/* 2. NAVIGACE */
+nav {
+    background-color: #000;
+    display: flex; /* Seřadí logo a menu vedle sebe */
+    justify-content: space-between; /* Roztáhne je od sebe */
+    align-items: center;
+    padding: 20px 50px;
+    border-bottom: 2px solid var(--primary-green); /* Zelená linka pod menu */
+}
+
+nav .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--primary-green);
+    letter-spacing: 2px;
+}
+
+nav ul {
+    list-style: none; /* Odstraní tečky u seznamu */
+    display: flex;
+    gap: 20px; /* Mezery mezi položkami menu */
+}
+
+nav a {
+    text-decoration: none; /* Odstraní podtržení odkazů */
+    color: var(--text-white);
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: color 0.3s; /* Plynulá změna barvy */
+}
+
+nav a:hover {
+    color: var(--primary-green); /* Po najetí myší zezelená */
+}
+
+/* 3. HERO SEKCE (Úvod) */
+header {
+    height: 80vh; /* 80% výšky okna prohlížeče */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vycentruje svisle */
+    align-items: center; /* Vycentruje vodorovně */
+    text-align: center;
+    background: radial-gradient(circle, #1a1a1a 0%, #000000 100%); /* Jemný přechod */
+}
+
+header h1 {
+    font-size: 80px;
+    color: var(--primary-green);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    letter-spacing: 5px;
+}
+
+header p {
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+/* 4. TLAČÍTKO (Button) */
+.btn {
+    display: inline-block;
+    padding: 15px 40px;
+    background-color: transparent;
+    color: var(--primary-green);
+    border: 2px solid var(--primary-green);
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background-color: var(--primary-green);
+    color: #000;
+    box-shadow: 0 0 20px var(--primary-green); /* Zářící efekt */
+}
+
+/* 5. PRODUKTY A ZBYTEK */
+section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 40px;
+    margin-bottom: 40px;
+    border-bottom: 2px solid var(--primary-green);
+    display: inline-block;
+}
+
+/* --- ANIMACE (pro JavaScript) --- */
+
+/* Výchozí stav - prvek je schovaný */
+.hidden {
+    opacity: 0;           /* Průhledný */
+    filter: blur(5px);    /* Rozmazaný */
+    transform: translateX(-100%); /* Posunutý doleva mimo obrazovku */
+    transition: all 1s;   /* Animace trvá 1 sekundu */
+}
+
+/* Stav, když je prvek vidět (JS přidá tuto třídu) */
+.show {
+    opacity: 1;           /* Viditelný */
+    filter: blur(0);      /* Ostrý */
+    transform: translateX(0); /* Na svém místě */
+}
+
+/* Aby produkty (plechovky) létaly z různých stran, můžeme upravit delay */
+.product:nth-child(2) {
+    transition-delay: 200ms; /* Druhý produkt počká 200ms */
+}
+.product:nth-child(3) {
+    transition-delay: 400ms; /* Třetí produkt počká 400ms */
+}
+/* --- ÚPRAVA PRODUKTŮ PRO DYNAMICKÉ NAČÍTÁNÍ --- */
+
+/* Kontejner - aby byly produkty vedle sebe */
+.product-container {
+    display: flex;
+    flex-wrap: wrap; /* Když se nevejdou, zalamí se na další řádek */
+    justify-content: center;
+    gap: 30px; /* Mezera mezi kartami */
+    margin-top: 40px;
+}
+
+/* Samotná karta produktu */
+.product {
+    background-color: #1a1a1a; /* Tmavě šedé pozadí karty */
+    padding: 30px;
+    border: 1px solid var(--primary-green); /* Zelený rámeček */
+    width: 300px; /* Pevná šířka karty */
+    border-radius: 10px; /* Zaoblené rohy */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5); /* Stín pod kartou */
+}
+
+.product h3 {
+    color: var(--primary-green);
+    font-size: 24px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.product p {
+    font-size: 16px;
+    color: #ccc;
+}
