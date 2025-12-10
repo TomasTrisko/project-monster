@@ -13,6 +13,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth; /* Plynulý posun stránky */
+}
+
 body {
     background-color: var(--bg-black);
     color: var(--text-white);
@@ -90,7 +94,7 @@ header p {
     font-size: 20px;
     font-weight: bold;
     text-transform: uppercase;
-    transition: all 0.3s ease;
+    transition: all 0.25s ease;
 }
 
 .btn:hover {
@@ -119,7 +123,7 @@ h2 {
     opacity: 0;           /* Průhledný */
     filter: blur(5px);    /* Rozmazaný */
     transform: translateX(-100%); /* Posunutý doleva mimo obrazovku */
-    transition: all 1s;   /* Animace trvá 1 sekundu */
+    transition: all 0.75s;   /* Animace trvá 1 sekundu */
 }
 
 /* Stav, když je prvek vidět (JS přidá tuto třídu) */
@@ -136,6 +140,10 @@ h2 {
 .product:nth-child(3) {
     transition-delay: 400ms; /* Třetí produkt počká 400ms */
 }
+.product:nth-child(4) {
+    transition-delay: 600ms; /* Čtvrtý produkt počká 600ms */
+}
+
 /* --- ÚPRAVA PRODUKTŮ PRO DYNAMICKÉ NAČÍTÁNÍ --- */
 
 /* Kontejner - aby byly produkty vedle sebe */
@@ -167,4 +175,118 @@ h2 {
 .product p {
     font-size: 16px;
     color: #ccc;
+}
+
+/* Stylování obrázku v produktu */
+.product img {
+    width: 100%;           /* Roztáhne se na šířku karty */
+    height: 250px;         /* Pevná výška, aby byly všechny karty stejně vysoké */
+    object-fit: contain;   /* DŮLEŽITÉ: Zachová poměr stran, obrázek se nedeformuje */
+    margin-bottom: 20px;   /* Mezera pod obrázkem */
+    filter: drop-shadow(0 10px 10px rgba(0,0,0,0.5)); /* Stín pod plechovkou (vypadá to 3D) */
+    transition: transform 0.3s ease; /* Plynulý pohyb */
+}
+
+/* Efekt při najetí myší na kartu - plechovka se trochu zvětší */
+.product:hover img {
+    transform: scale(1.1) rotate(5deg);
+}
+/* --- SEKCE O NÁS / LIFESTYLE --- */
+
+.about-container {
+    display: flex;          /* Dáme prvky vedle sebe */
+    align-items: center;    /* Zarovnáme je na střed svisle */
+    justify-content: space-between;
+    gap: 50px;              /* Mezera mezi textem a fotkou */
+    max-width: 1100px;      /* Aby to nebylo moc roztažené na velkých monitorech */
+    margin: 0 auto;         /* Vycentrování celého bloku */
+    text-align: left;       /* Text zarovnáme doleva (vypadá to lépe u delšího textu) */
+}
+
+/* Styl pro textovou část */
+.about-text {
+    flex: 1; /* Zabere polovinu místa */
+}
+
+.about-text p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #cccccc; /* Světle šedá je čitelnější než čistě bílá */
+}
+
+/* Styl pro obrázkovou část */
+.about-image {
+    flex: 1; /* Zabere druhou polovinu místa */
+}
+
+.about-image img {
+    width: 100%;            /* Roztáhne se na šířku svého sloupce */
+    border-radius: 10px;    /* Zaoblené rohy */
+    border: 2px solid var(--primary-green); /* Zelený rámeček */
+    box-shadow: 0 0 20px rgba(151, 215, 0, 0.2); /* Jemná zelená záře */
+    transition: transform 0.5s ease;
+}
+
+.about-image img:hover {
+    transform: scale(1.02); /* Jemné zvětšení při najetí myší */
+}
+/* --- RESPONZIVITA (MOBILNÍ VERZE) --- */
+/* Tyto styly platí jen pro obrazovky užší než 768px */
+
+@media (max-width: 768px) {
+    
+    /* 1. Úprava navigace */
+    nav {
+        flex-direction: column; /* Položky pod sebe, ne vedle sebe */
+        padding: 20px;
+    }
+
+    nav ul {
+        margin-top: 20px;
+        flex-direction: column; /* Odkazy pod sebe */
+        gap: 10px;
+        text-align: center;
+        width: 100%;
+    }
+
+    nav a {
+        display: block;
+        padding: 10px;
+        background-color: rgba(151, 215, 0, 0.1); /* Jemně zelené pozadí pro lepší klikání */
+        border-radius: 5px;
+    }
+
+    /* 2. Zmenšení obřího nadpisu */
+    header h1 {
+        font-size: 40px; /* Zmenšeno z 80px */
+        padding: 0 10px;
+        line-height: 1.2;
+    }
+
+    header p {
+        font-size: 18px;
+        padding: 0 20px;
+    }
+    /* ... předchozí kód pro navigaci a header ... */
+
+    /* 4. Úprava sekce O nás na mobilu */
+    .about-container {
+        flex-direction: column; /* Text nahoře, obrázek dole */
+        text-align: center;     /* Na mobilu vypadá centrovaný text lépe */
+    }
+    
+    .about-text {
+        margin-bottom: 30px;    /* Mezera mezi textem a obrázkem */
+    }
+
+    /* 3. Úprava karet produktů */
+    .product-container {
+        flex-direction: column; /* Karty pod sebe */
+        align-items: center;
+    }
+
+    .product {
+        width: 100%; /* Karta roztáhlá na celou šířku */
+        max-width: 350px; /* Ale ne víc než 350px */
+    }
 }

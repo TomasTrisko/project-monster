@@ -1,18 +1,22 @@
 [
     {
         "name": "Original",
-        "description": "Klasická chuť, která to všechno začala. Dvojitá dávka energie."
+        "description": "Klasická chuť, která to všechno začala. Dvojitá dávka energie.",
+        "image": "img/original.png"
     },
     {
         "name": "Mango Loco",
-        "description": "Nebeská směs exotických šťáv. Chutná jako dovolená v plechovce."
+        "description": "Nebeská směs exotických šťáv. Chutná jako dovolená v plechovce.",
+        "image": "img/mango.png"
     },
     {
         "name": "Ultra White",
-        "description": "Nulový cukr, plná energie. Osvěžující citrusová chuť bez výčitek."
+        "description": "Nulový cukr, plná energie. Osvěžující citrusová chuť bez výčitek.",
+        "image": "img/white.png"
     },
     {
         "name": "Pipeline Punch",
-        "description": "Mix maracuji, pomeranče a guavy. Legendární chuť Havaje."
+        "description": "Mix maracuji, pomeranče a guavy. Legendární chuť Havaje.",
+        "image": "img/pipeline.png"
     }
 ]

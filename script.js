@@ -37,6 +37,7 @@ async function loadProducts() {
             article.classList.add('product', 'hidden'); 
 
             article.innerHTML = `
+                <img src="${product.image}" alt="${product.name}">
                 <h3>${product.name}</h3>
                 <p>${product.description}</p>
             `;
